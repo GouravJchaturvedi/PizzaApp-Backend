@@ -1,7 +1,7 @@
-const express = require('express');
+import express from 'express'
 
-const ServerConfig = require('./config/serverConfig');
-const connectDB = require('./config/dbConfig');
+import {serverConfig} from './config/serverConfig.js';
+import connectDB from './config/dbConfig.js';
 
 const app = express();
 
@@ -14,7 +14,7 @@ app.post('/ping', (req, res) => {
     return res.json({message: "pong"});
 })
 
-app.listen(ServerConfig.PORT, async () => {
+app.listen(serverConfig.PORT, async () => {
     await connectDB();
-    console.log(`Server started at port ${ServerConfig.PORT}...!!`);
+    console.log(`Server started at port ${serverConfig.PORT}...!!`);
 });
